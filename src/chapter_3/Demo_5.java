@@ -9,7 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ *Use of synchronized keyword, only can be used on methods or code blocks
+ * allow that only one thread can enter on the method or code block on the same time
  * @author ramon
  */
 public class Demo_5 {
@@ -45,8 +46,8 @@ public class Demo_5 {
         threadTwo.start();
         
         try {
-            threadOne.join();
-            threadTwo.join();
+            threadOne.join();//main thread wait until threadOne finishes
+            threadTwo.join();//main thread wait until threadTwo finishes
         } catch (InterruptedException ex) {
             Logger.getLogger(Demo_5.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -54,7 +55,8 @@ public class Demo_5 {
         
         System.out.println("The counter value is " + counter);
     }
-    
+    // only one thread can enter at the same time
+    //on this method, ensure the consistency
     private synchronized void increment() {
         counter++;
     }
