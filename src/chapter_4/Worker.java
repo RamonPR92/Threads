@@ -12,7 +12,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ *synchronize method block all the object in this case Worker object,
+ * and is possible synchronize but take the double time than if get used 
+ * synchronize block, because the object  is not blocked fully, only blocks
  * @author ramon
  */
 public class Worker {
@@ -21,7 +23,7 @@ public class Worker {
     private List<Integer> list1 = new ArrayList<>();
     private List<Integer> list2 = new ArrayList<>();
     
-    Object lock1 = new Object();
+    Object lock1 = new Object();//dummy objects
     Object lock2 = new Object();
     
     public void stageOne(){
